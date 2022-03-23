@@ -1,6 +1,6 @@
 
 import rospy
-from gpr20_data_processing.data_storage import DataStorage
+from gpr20_data_processing.data_processing import DataProcessing
 from gpr20_msgs.srv import ProcessingStoreData, ProcessingStoreDataResponse
 
 class DataNode(object):
@@ -29,7 +29,7 @@ class DataNode(object):
                 indicate that process has finished.
         """
         # Call the method to store data in file
-        DataStorage.store_data(
+        DataProcessing.process_data(
             srv.survey_dir,
             srv.x_coord,
             srv.y_coord,
