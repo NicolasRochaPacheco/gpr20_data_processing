@@ -63,7 +63,7 @@ class DataStorage(object):
         json_str = json.dumps(file_dict, indent=4)
 
         # Create the file name
-        fname = "X{:5.2f}_Y{:5.2f}_Z{:5.2f}.json".format(x_coord, y_coord, z_coord)
+        fname = "X{:06.2f}_Y{:06.2f}_Z{:06.2f}.json".format(x_coord, y_coord, z_coord)
 
         # Check that main folder exists
         main_dir = DataStorage.__check_main_folder()
