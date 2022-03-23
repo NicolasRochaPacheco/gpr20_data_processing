@@ -1,12 +1,13 @@
-""" This file contains the implementation of the data parsing module.
+"""This file contains the implementation of the data parsing module.
 
 The data parsing module (DataParsing) contains the implementation of the
 required functionalities to parse data from the VNA instrument of the
 robot.
 """
 
+
 class DataParsing(object):
-    """ Class to parse responses from the VNA instrument.
+    """Class to parse responses from the VNA instrument.
 
     This class contains the methods to parse the responses from the VNA. Two
     main methods are used for parsing the VNA response data depending on its
@@ -15,7 +16,7 @@ class DataParsing(object):
     """
 
     def parse_vna_trace(vna_trace):
-        """ Parse the VNA trace response from the VNA instrument.
+        """Parse the VNA trace response from the VNA instrument.
 
         Receive the raw trace response from the VNA instrument and convert it
         to two (2) lists. The lists contain the real and imaginary components
@@ -24,10 +25,10 @@ class DataParsing(object):
         Args:
             vna_trace (str): raw response from the VNA instrument when
                 queried for the trace value.
-        
+
         Returns:
             list: contains the real components of the trace reponse.
-            list: contains the imaginary components of the trace response. 
+            list: contains the imaginary components of the trace response.
         """
         # Remove the header from response
         vna_trace = DataParsing.__remove_header(vna_trace)
@@ -57,7 +58,7 @@ class DataParsing(object):
         return vna_trace_re, vna_trace_im
 
     def parse_vna_frequency(vna_freq):
-        """ Parse the VNA frequency response from the VNA instrument.
+        """Parse the VNA frequency response from the VNA instrument.
 
         Receive the VNA frequency response from the VNA instrument and convert
         it to a formatted list.
@@ -81,13 +82,13 @@ class DataParsing(object):
 
     @staticmethod
     def __remove_header(vna_response):
-        """ Removes the header from the VNA response.
+        """Remove the header from the VNA response.
 
         This method removes the header as specified by the VNA documentation.
         The header consists of a hashtag character ('#'), followed by a number
         that specifies the header bytes length. The hashtag, the number and
         the header are removed from the response string.
-        
+
         Returns:
             str: response string without the header.
         """
@@ -105,8 +106,8 @@ class DataParsing(object):
 
     @staticmethod
     def __create_array(vna_response):
-        """ Creates a list with the retrieved data from the VNA.
-        
+        """Create a list with the retrieved data from the VNA.
+
         This method converts the VNA response string, without the header, to a
         python list containing the values formatted as float numbers.
 
